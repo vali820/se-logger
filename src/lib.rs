@@ -1,3 +1,26 @@
+//! # se-logger
+//! Simple customizable logging crate.
+//! 
+//! # Getting started
+//! ```
+//! use se_logger::*;
+//! 
+//! fn main() {
+//!     // Initialize the logger with the log file path and log level
+//!     // File path will be test_19_35_33.log (for example)
+//!     log_init("test_%H_%M_%S.log", INFO);
+//!     
+//!     // Now you can use the library anywhere
+//!     info("This is an info message");
+//!     error("This is an error message");
+//! }
+//! ```
+//! Output:
+//! ```
+//! [19:35:33] [INFO] [main] This is an info message
+//! [19:35:33] [ERROR] [main] This is an error message
+//! ```
+
 use std::io::Write;
 
 pub const TRACE: u32 = 5;
@@ -33,7 +56,7 @@ const LOG_LEVEL_VAR: &str = "SE_LOG_LEVEL";
 /// be used as they contain `/` or `:` which are disallowed in filenames.
 /// 
 /// If a path is invalid, the default will be used: `unnamed.log`
-pub fn init(path: &str, level: u32) {
+pub fn log_init(path: &str, level: u32) {
     set_log_path(&current_time_fmt(path));
     set_log_level(level);
 }
