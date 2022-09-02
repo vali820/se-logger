@@ -6,7 +6,7 @@ license = "MIT"
 repository = "https://www.github.com/vali820/se-logger/"
 description = "Simple customizable logging crate"
 keywords = ["logging"]
-documentation = "https://doc.rust-lang.org/se-logger/"
+documentation = "https://docs.rs/se-logger/latest/se_logger/"
 
 [dependencies]
 chrono = "0.4.22"
